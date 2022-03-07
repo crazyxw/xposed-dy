@@ -26,6 +26,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class PhoneMgr {
     private static final String PHONE_NUM = "phone_num";
@@ -60,8 +61,8 @@ public class PhoneMgr {
             persist.writeData(PersistKey.PHONE_INFO_TEST, "");
             return JSON.parseObject(test, PhoneInfo.class);
         }
-
-        PhoneInfo info = getNetPhoneInfo(context, deviceNum);
+        PhoneInfo info = getRandomPhoneInfo();
+////        PhoneInfo info = getNetPhoneInfo(context, deviceNum);
         if (info != null) {
             TraceUtil.e("net phoneInfo...");
             return info;
@@ -186,6 +187,82 @@ public class PhoneMgr {
         }
         return null;
     }
+
+    public static PhoneInfo getRandomPhoneInfo(){
+        PhoneInfo phoneInfo = new PhoneInfo();
+        phoneInfo.setTags("release-keys");
+        phoneInfo.setHost("ubuntu");
+        phoneInfo.setUser("build");
+        phoneInfo.setTime("1616072733000");
+        phoneInfo.setDisplay("N2G48C");
+        phoneInfo.setBootloader("unknown");
+        phoneInfo.setSerial("00"+getRandomMac("", 3));
+        phoneInfo.setBoard("SM-N9760");
+        phoneInfo.setBrand("samsung");
+        phoneInfo.setDevice("aosp");
+        phoneInfo.setFingerprint("google/android_x86/x86:7.1.2/N2G48C/N975FXXU1ASGO:/release-keys");
+        phoneInfo.setHardware("android_x86");
+        phoneInfo.setManufacturer("samsung");
+        phoneInfo.setType("user");
+        phoneInfo.setModel("SM-N9760");
+        phoneInfo.setProduct("SM-N9760");
+        phoneInfo.setBuildID("N2G48C");
+        phoneInfo.setRelease("7.1.2");
+        phoneInfo.setIncremental("N975FXXU1ASGO");
+        phoneInfo.setCodename("REL");
+        phoneInfo.setSdk("25");
+        phoneInfo.setSdkInt("25");
+        phoneInfo.setGetRadioVersion("");
+
+        // 随机device_id
+        Random random = new Random();
+        String device_id = "86516" + (random.nextInt((Integer.MAX_VALUE-1000000000+1)) + 1000000000);
+        phoneInfo.setGetDeviceId(device_id);
+        phoneInfo.setGetNetworkOperator("46000");
+        phoneInfo.setGetNetworkOperatorName("CHINA MOBILE");
+        phoneInfo.setGetNetworkType("0");
+        phoneInfo.setGetSimOperator("46000");
+        phoneInfo.setGetSimOperatorName("China Mobile GSM");
+        String sid = "46000" + (random.nextInt((Integer.MAX_VALUE-1000000000+1)) + 1000000000);
+        phoneInfo.setGetSubscriberId(sid);
+        phoneInfo.setGetDataActivity("0");
+        phoneInfo.setVersion("09");
+        phoneInfo.setGetLine1Number("");
+        phoneInfo.setGetSimSerialNumber("8986001226" + (random.nextInt((Integer.MAX_VALUE-1000000000+1)) + 1000000000));
+        phoneInfo.setGetCellLocation("[1028,32305,0]");
+
+        String ssid = "\""+ (random.nextInt(90000) + 10000) + "\"";
+        phoneInfo.setGetExtraInfo(ssid);
+        phoneInfo.setGetSubtype("0");
+        phoneInfo.setGetTypeName("WIFI");
+        phoneInfo.setGetType("1");
+        phoneInfo.setGetMacAddress("00:db:" + getRandomMac(":", 4));
+        phoneInfo.setGetBSSID("00:AA:" + getRandomMac(":", 4));
+
+        phoneInfo.setGetIpAddress(""+ (random.nextInt((90000000-10000000+1)) + 10000000));
+        phoneInfo.setGetNetworkId("0");
+        phoneInfo.setGetSSID(ssid);
+        phoneInfo.setGetRssi("-43");
+        phoneInfo.setGetLocalHost("localhost/127.0.0.1");
+        phoneInfo.setScanResultsSSID(ssid);
+        phoneInfo.setScanResultsLevel("-38");
+        phoneInfo.setScanResultsFrequency("2447");
+        phoneInfo.setScanResultsCapabilities("[ESS]");
+        phoneInfo.setWidthPixels("2.0");
+        phoneInfo.setAndroidId(getRandomMac("", 8));
+        TraceUtil.e(phoneInfo.toString());
+        return phoneInfo;
+    }
+
+    public static String getRandomMac(String sep, int num) {
+        Random random = new Random();
+        String result = "";
+        for(int i=0; i< num; i++){
+            result += sep + String.format("%02x", random.nextInt(0xff));
+        }
+        return result.substring(1);
+    }
+
 
     private static int getCacheNum(Context context) {
         return (Integer) PersistFactory.getInstance(context).readData(PHONE_NUM, -1);

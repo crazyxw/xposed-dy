@@ -649,4 +649,80 @@ public class PhoneInfo {
     public void setBuildID(String buildID) {
         this.buildID = buildID;
     }
+
+    @Override
+    public String toString() {
+        return "PhoneInfo{" +
+                "density='" + density + '\'' +
+                ", densityDpi='" + densityDpi + '\'' +
+                ", scaledDensity='" + scaledDensity + '\'' +
+                ", getBestProvider='" + getBestProvider + '\'' +
+                ", getAccuracy='" + getAccuracy + '\'' +
+                ", getLatitude='" + getLatitude + '\'' +
+                ", getLongitude='" + getLongitude + '\'' +
+                ", getProvider='" + getProvider + '\'' +
+                ", getCellLocation='" + getCellLocation + '\'' +
+                ", getDeviceId='" + getDeviceId + '\'' +
+                ", androidId='" + androidId + '\'' +
+                ", getNetworkOperator='" + getNetworkOperator + '\'' +
+                ", getNetworkOperatorName='" + getNetworkOperatorName + '\'' +
+                ", getNetworkType='" + getNetworkType + '\'' +
+                ", getSimSerialNumber='" + getSimSerialNumber + '\'' +
+                ", getSimOperator='" + getSimOperator + '\'' +
+                ", getSimOperatorName='" + getSimOperatorName + '\'' +
+                ", getSubscriberId='" + getSubscriberId + '\'' +
+                ", serial='" + serial + '\'' +
+                ", getDataActivity='" + getDataActivity + '\'' +
+                ", board='" + board + '\'' +
+                ", brand='" + brand + '\'' +
+                ", bootloader='" + bootloader + '\'' +
+                ", display='" + display + '\'' +
+                ", device='" + device + '\'' +
+                ", fingerprint='" + fingerprint + '\'' +
+                ", hardware='" + hardware + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", model='" + model + '\'' +
+                ", product='" + product + '\'' +
+                ", release='" + release + '\'' +
+                ", sdk='" + sdk + '\'' +
+                ", sdkInt='" + sdkInt + '\'' +
+                ", getExtraInfo='" + getExtraInfo + '\'' +
+                ", getReason='" + getReason + '\'' +
+                ", getSubtype='" + getSubtype + '\'' +
+                ", getSubtypeName='" + getSubtypeName + '\'' +
+                ", getType='" + getType + '\'' +
+                ", getTypeName='" + getTypeName + '\'' +
+                ", getRssi='" + getRssi + '\'' +
+                ", getCanonicalHostName='" + getCanonicalHostName + '\'' +
+                ", getHostAddress='" + getHostAddress + '\'' +
+                ", getHostName='" + getHostName + '\'' +
+                ", getLocalHost='" + getLocalHost + '\'' +
+                ", getMacAddress='" + getMacAddress + '\'' +
+                ", getBSSID='" + getBSSID + '\'' +
+                ", getIpAddress='" + getIpAddress + '\'' +
+                ", getNetworkId='" + getNetworkId + '\'' +
+                ", getSSID='" + getSSID + '\'' +
+                ", scanResultsLevel='" + scanResultsLevel + '\'' +
+                ", scanResultsFrequency='" + scanResultsFrequency + '\'' +
+                ", scanResultsBSSID='" + scanResultsBSSID + '\'' +
+                ", scanResultsCapabilities='" + scanResultsCapabilities + '\'' +
+                ", scanResultsSSID='" + scanResultsSSID + '\'' +
+                ", widthPixels='" + widthPixels + '\'' +
+                ", heightPixels='" + heightPixels + '\'' +
+                ", getWidth='" + getWidth + '\'' +
+                ", getHeight='" + getHeight + '\'' +
+                ", getRotation='" + getRotation + '\'' +
+                ", version='" + version + '\'' +
+                ", getLine1Number='" + getLine1Number + '\'' +
+                ", tags='" + tags + '\'' +
+                ", time='" + time + '\'' +
+                ", type='" + type + '\'' +
+                ", user='" + user + '\'' +
+                ", host='" + host + '\'' +
+                ", getRadioVersion='" + getRadioVersion + '\'' +
+                ", codename='" + codename + '\'' +
+                ", incremental='" + incremental + '\'' +
+                ", buildID='" + buildID + '\'' +
+                '}';
+    }
 }
